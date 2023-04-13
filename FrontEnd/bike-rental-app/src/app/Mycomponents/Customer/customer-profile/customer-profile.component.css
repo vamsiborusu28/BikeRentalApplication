@@ -1,0 +1,8 @@
+td{
+    padding-bottom:10px;
+}
+@media only screen and (max-width: 325px) {
+    td{
+        font-size:12px;
+    }
+  }

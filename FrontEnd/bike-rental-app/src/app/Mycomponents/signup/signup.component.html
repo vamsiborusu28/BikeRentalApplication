@@ -1,0 +1,85 @@
+<div class="container-limit">
+    <div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-60 p-b-54">
+            <form class="login100-form" #myForm="ngForm">
+                <span class="login100-form-title p-b-49">Signup</span>
+                <div class="alert alert-success text-center" *ngIf='successMessage'>{{successMessage}}</div>
+                
+                <div class="wrap-input100 m-b-23">
+                    <span class="label-input100">Name</span>
+                    <input type="text" class="input100" id="name"  [(ngModel)]="Signup.userName" name="name" pattern="[a-zA-Z ]*" required #username="ngModel" [class.is-invalid]="username.invalid && username.touched" placeholder="Enter username">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    <div class="text-center">
+                        <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required and valid...</small>
+                    </div>
+                </div>
+                <div class="wrap-input100 m-b-23">
+                    <span class="label-input100">Email address</span>
+                    <input type="email" class="input100" id="email" [(ngModel)]="Signup.email" name="email" pattern=".+@gmail.com" placeholder="Enter E-mail address" required #email="ngModel"  [class.is-invalid]="email.invalid && email.touched">
+                    <span class="focus-input100" data-symbol="&#xf10c;"></span>
+                    <div *ngIf="email.errors && (email.invalid && email.touched)" class="text-center">
+                        <small class="text-danger" *ngIf="email.errors"> Email ID is required and valid...</small>
+                    </div>
+                </div>   
+                <div class="wrap-input100 m-b-23">
+                    <span class="label-input100">Password</span>
+                    <input type="password" class="input100" id="password" required [(ngModel)]="Signup.password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" placeholder="Enter password">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    <div class="text-center">
+                        <small class="text-danger" [class.d-none]="password.valid || password.untouched"> Password is required</small>
+                    </div>
+                    <div *ngIf="password.errors && (password.invalid && password.touched)" class="text-center">
+                        <small class="text-danger float-left" > Password contain atleast One UpperCase & atleast One lowerCase & atleast one digit & atleast one symbol and length is minimum 8</small>
+                    </div>
+              
+                </div>
+                <div class="wrap-input100 m-b-23">
+                    <span class="label-input100">Mobile number [Don't include +91..] </span>
+                    <input type="tel" class="input100" id="mobileNumber" required [(ngModel)]="Signup.mobileNumber" name="mobileNumber" maxlength="10" pattern="[0-9]+" #mobileNumber="ngModel" [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched" placeholder="Enter mobile number">
+                    <span class="focus-input100" data-symbol="&#xf2bc;"></span>
+                    <div class="text-center">
+                        <small class="text-danger" [class.d-none]="mobileNumber.valid || mobileNumber.untouched"> Mobile number is required and valid...</small>
+                    </div>
+              
+                </div>
+                <div class="wrap-input100 m-b-23">
+                    <label for="role" class="form-label">Gender</label>
+                    <div class="form-check">
+                        <label for="gender" class="form-check-label mb-2">Male</label>
+                        <input type="radio" class="form-check-input" id="male" value="Male" name="gender" [(ngModel)]="Signup.gender" > 
+                    </div>
+                    <div class="form-check">
+                        <label for="gender" class="form-check-label mb-2">Female</label>
+                        <input type="radio" class="form-check-input" id="female" value="Female" name="gender"  [(ngModel)]="Signup.gender" > 
+                    </div>
+                </div>
+                <div class="wrap-input100 m-b-23">
+                    <span class="label-input100">Role</span>
+                    <select class="form-select" aria-label="Default select example" required [(ngModel)]="Signup.userRole" name="userRole"  >
+                        <option value="0" selected disabled>Select role</option>
+                        <option value="Renter">Renter</option>
+                        <option value="Customer">Customer</option>
+                    
+                    </select>
+                    
+                </div>
+                <div class="wrap-input100 m-b-23">
+                    <span class="label-input100">Address</span>
+                    <textarea class="input100" id="address" rows="10" required [(ngModel)]="Signup.address" name="address" #address="ngModel" [class.is-invalid]="address.invalid && address.touched" placeholder="Enter your full address with pincode and state"></textarea>
+                    <span class="focus-input100" data-symbol="&#xf2bb;"></span>
+                    <div class="text-center">
+                        <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address is required</small>
+                    </div>
+                  
+                </div>
+                <div class="container-login100-form-btn m-t-13">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button type="submit" [disabled]="myForm.invalid" (click)="handleSignup()" class="login100-form-btn" >Register</button>
+                    </div>
+                </div>
+                <p class="mt-3"><strong>Already have an account? </strong> <a routerLink="/">Click here</a></p>   
+            </form>
+        </div>
+    </div>
+</div>

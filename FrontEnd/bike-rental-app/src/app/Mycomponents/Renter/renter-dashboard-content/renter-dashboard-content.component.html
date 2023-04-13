@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-left mb-2">Dashboard</h1>
+      <div class="d-flex">
+        <input class="form-control me-2 mb-4" type="search" placeholder="Search" aria-label="Search"
+          [(ngModel)]="SearchValue">
+      </div>
+    </div>
+ </div>
+
+  <div class="row">
+    <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let fd of bike | BikeFilter:SearchValue | paginate: { itemsPerPage: 8, currentPage: page }">
+      <div class="card shadow p-3 mb-5 bg-body rounded" id="bikeCard">
+        <img src="{{fd.bikeImage}}" class="card-img-top" alt="{{fd.brandName}} {{fd.modelName}}" />
+        <div class="card-body">
+          <h3 class="card-title">{{fd.brandName}}</h3>
+          <h4 class="pb-2">{{fd.modelName}}</h4>
+          <table>
+            <Caption></Caption>
+            <th></th>
+            <Caption></Caption>
+            <tr>
+              <td><strong>Rent Amount:</strong> {{fd.rentAmount}}</td>
+            </tr>
+            <tr>
+              <td><strong>Pickup Location:</strong>{{fd.pickUpLocation}}</td>
+            </tr>
+            <tr>
+              <td><strong>Availability:</strong>{{fd.availability}}</td>
+          </table>
+          <div class="btn-group-justified text-center pt-2">
+            <button type="button" (click)='getBikeById(fd.id)'
+              class="align-self-end btn btn-primary btn-sm">Details</button>
+            <button type="button" (click)='updateBike(fd.id)'
+              class="align-self-end btn btn-warning btn-sm">Edit</button>
+            <button type="button" (click)='deleteBike(fd.id)'
+              class="align-self-end btn btn-danger btn-sm">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+

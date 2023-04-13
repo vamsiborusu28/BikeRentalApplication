@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <h3 class="text-center pb-2">Booking History</h3>
+      <div class="row d-flex">
+          <div class="col-lg-12">
+              <div class="card shadow p-2 mb-4 bg-white rounded  table-responsive">
+                <table class="table table-striped table-hover table-responsive" id="bookingTable">
+                  <Caption></Caption>
+                      <thead class="table-dark text-nowrap">
+                        <tr class="text-center">
+                            <th scope="col">S.No</th>
+                          <th scope="col">Booking Id</th>
+                          <th scope="col">Renter name</th>
+                          <th scope="col">Brand name</th>
+                          <th scope="col">Model name</th>
+                          <th scope="col">Booking Date</th>
+                          <th scope="col">Booking end date</th>
+                          <th scope="col">Total amount</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                    
+                    <tbody class="text-center">
+                        <tr *ngFor="let booking of bookingObj; index as i" >
+                          <td>{{i+1}}</td>
+                          <td>{{booking.bookingId}}</td>
+                          <td>{{ booking.renterName}}</td>
+                          <td>{{ booking.brandName}}</td>
+                          <td>{{ booking.modelName}}</td>
+                          <td>{{ booking.bookingDate}}</td>
+                          <td>{{ booking.endDate}}</td>
+                          <td>{{ booking.totalAmount}}</td>
+                          <td>
+                            <div *ngIf= "forOngoing(booking.bookingDate,booking.endDate)">
+                              <button type="button" disabled class="btn btn-success btn-sm">Ongoing</button>
+                            </div>
+                            <div *ngIf= "forCancel(booking.bookingDate)">
+                              <button type="button" (click)="cancelBike(booking.bookingId )" class="btn btn-danger btn-sm">Cancel</button>
+                            </div> 
+                            <div *ngIf= "forCompleted(booking.endDate)">
+                              <button type="button" disabled class="btn btn-secondary btn-sm">Completed</button>
+                             </div> 
+                          </td>  
+                        </tr>
+                    </tbody> 
+                </table>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  

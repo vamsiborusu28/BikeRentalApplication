@@ -1,0 +1,60 @@
+
+  /* body {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    background:#f4fafe;
+    height:100vh;
+  } */
+
+ #card{
+  Justify-content: space-evenly;
+  width:100%;
+  height:80%;
+  border-radius: 12px !important;
+  
+ }
+
+/* CSS */
+#userBtn {
+  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  height: 50px;
+  max-width:100%;
+  justify-content: center;
+  
+  
+}
+
+#userBtn:active {
+  outline: 0;
+}
+
+#userBtn:hover {
+  outline: 0;
+}
+
+#userBtn span {
+  transition: all 200ms;
+}
+
+#userBtn:hover span {
+  transform: scale(.9);
+  opacity: .75;
+}
+
+@media screen and (max-width: 991px) {
+  #userBtn {
+    font-size: 15px;
+    height: 50px;
+  }
+
+  #userBtn span {
+    line-height: 50px;
+  }
+}
+

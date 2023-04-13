@@ -1,0 +1,30 @@
+
+<h2>{{bikes.brandName}} {{bikes.modelName}} detail</h2> 
+
+<hr/>
+
+<div *ngIf="bikes">
+  <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+    <div class="row">
+      <div class="col text-center">
+          <img src="{{bikes.bikeImage}}" style="height:350px;" alt="{{bikes.brandName}} {{bikes.modelName}}"/>
+      </div>
+      
+      <div class="col">  
+          <div class="card-body">
+            <h3 class="card-title">{{bikes.brandName}}</h3>
+            <h4>{{bikes.modelName}}</h4>
+          <table>
+            <Caption></Caption>
+            <th></th> 
+            <tr><td><strong>Bike Number  : </strong>{{bikes.bikeNumber}}</td></tr> <br>
+            <tr><td><strong>Rent Amount : </strong>{{bikes.rentAmount}}</td></tr> <br>
+            <tr> <td><strong>Pickup Location : </strong>{{bikes.pickUpLocation}}</td></tr><br>
+            <tr> <td><strong>Availability : </strong>{{bikes.availability}}</td></tr><br>
+            <tr> <td><strong>Description : </strong> {{bikes.description}}</td></tr><br>
+          </table>
+          </div>
+        </div>
+      </div>
+</div>
+<button (click)="goto()" class="btn btn-primary">Back to Dashboard</button><br>

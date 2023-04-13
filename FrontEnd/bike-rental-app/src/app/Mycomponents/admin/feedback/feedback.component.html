@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <h3 class="text-center pb-2">Feedback</h3>
+      <div class="row d-flex">
+          <div class="col-lg-12">
+              <div class="card shadow p-2 mb-4 bg-white rounded  table-responsive">
+                <table class="table table-striped table-hover table-responsive" id="FeedbackTable">
+                  <Caption></Caption>
+                      <thead class="table-dark text-nowrap">
+                        <tr class="text-center">
+                          <th scope="col">S.No</th>
+                          <th scope="col">User name</th>
+                          <th scope="col">Email-id</th>
+                          <th scope="col">User role</th>
+                          <th scope="col">Comments</th>
+                        </tr>
+                      </thead>
+                    
+                    <tbody class="text-center">
+                        <tr *ngFor="let feedback of feedbackObj; index as i" >
+                          <td>{{feedback.id}}</td>
+                          <td>{{ feedback.name}}</td>
+                          <td>{{ feedback.email}}</td>
+                          <td>{{ feedback.userRole}}</td>
+                          <td class="text-justify"><p>{{ feedback.feedback}}</p></td>
+                        </tr>
+                    </tbody> 
+                </table>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  

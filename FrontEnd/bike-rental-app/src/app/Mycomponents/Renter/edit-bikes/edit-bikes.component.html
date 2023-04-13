@@ -1,0 +1,87 @@
+<div class="card shadow-lg p-3 mb-5 bg-body rounded col-sm-6 offset-sm-3">
+  <h3 style="width: auto;" class="text-center">Edit Bikes</h3>
+
+
+<div class="container">
+  <div [hidden]="submitted">
+    <form  #editForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group" [class.has-error]="control.invalid">
+        <label for="name" class="control-label">Brand Name</label>
+        <input type="text" class="form-control" id="brandName" required  [(ngModel)]="bikes.brandName" name="brandName" #control="ngModel">
+       
+        <span class="help-block" *ngIf="control.invalid && control.touched" style="color: red;"> 
+          Brand Name is Required
+        </span>
+      </div>
+
+      <div class="form-group" [class.has-error]="modelcontrol.invalid">
+        <label for="modelName" class="control-label">Model Name</label>
+        <input type="text" class="form-control" id="modelName" required [(ngModel)]="bikes.modelName" name="modelName" #modelcontrol="ngModel">
+       
+        <span class="help-block" *ngIf="modelcontrol.invalid && modelcontrol.touched" style="color: red;"> 
+          Model Name is Required
+        </span>
+      
+      </div>
+
+      <div class="form-group" [class.has-error]="bikeNumbercontrol.invalid">
+        <label for="bikeNumber" class="control-label">Bike Number</label>
+        <input type="text" class="form-control" id="bikeNumber" required  [(ngModel)]="bikes.bikeNumber" name="bikeNumber" #bikeNumbercontrol="ngModel">
+      
+        <span class="help-block" *ngIf="bikeNumbercontrol.invalid && bikeNumbercontrol.touched" style="color: red;"> 
+           Bike Number is Required
+        </span>
+      </div>
+
+      <div class="form-group" [class.has-error]="pickUpLocationcontrol.invalid">
+        <label for="pickUpLocation" class="control-label">Pickup Location</label>
+        <input type="text" class="form-control" id="pickUpLocation" required [(ngModel)]="bikes.pickUpLocation" name="pickUpLocation" #pickUpLocationcontrol="ngModel">
+      
+        <span class="help-block" *ngIf="pickUpLocationcontrol.invalid && pickUpLocationcontrol.touched" style="color: red;"> 
+          Pickup Location is Required
+        </span>
+      </div>
+      <div class="form-group" [class.has-error]="availabilitycontrol.invalid">
+        <label for="availability" class="control-label">Availability</label>
+        <input type="text" class="form-control" id="availability" required  [(ngModel)]="bikes.availability" name="availability" #availabilitycontrol="ngModel">
+     
+        <span class="help-block" *ngIf="availabilitycontrol.invalid && availabilitycontrol.touched" style="color: red;"> 
+          Availability is Required
+        </span>
+      </div>
+      
+      <div class="wrap-input100 m-b-23 pb-4">
+        <span class="label-input100">Upload Profile Image </span>
+        <input type="file" class="form-control mt-2" id="bikeImage" (change)="onChange($event)" name="bikeImage"  placeholder="Upload your profile image" >
+      </div>
+
+      <div class="form-group" [class.has-error]="rentAmountcontrol.invalid">
+        <label for="rentAmount" class="control-label">rentAmount</label>
+        <input type="text" class="form-control" id="rentAmount" required [(ngModel)]="bikes.rentAmount" name="rentAmount" #rentAmountcontrol="ngModel">
+     
+        <span class="help-block" *ngIf="rentAmountcontrol.invalid && rentAmountcontrol.touched" style="color: red;"> 
+          Rent Amount is Required
+        </span>
+      </div>
+
+      <div class="form-group" [class.has-error]="descriptioncontrol.invalid">
+        <label for="description" class="control-label">Description</label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="bikes.description" name="description" #descriptioncontrol="ngModel">
+        <span class="help-block" *ngIf="descriptioncontrol.invalid && descriptioncontrol.touched" style="color: red;"> 
+          Description is Required
+        </span>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-success mt-2" [disabled]="!editForm.form.valid">Submit</button>
+      </div>
+     </form>
+  </div>
+</div>
+
+  <div [hidden]="!submitted">
+    <h4>You edited successfully!</h4>
+  </div>
+</div>
+
+  

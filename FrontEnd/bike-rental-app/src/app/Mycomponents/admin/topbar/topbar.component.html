@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light shadow-lg p-3 mb-2 mt-2 bg-white rounded">
+    <div class="container-fluid">
+      <a class="navbar-brand"></a>
+        <div class="d-flex">
+            <ul>
+                <li class="nav-item dropdown ">
+             
+                    <a class="dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{profileLogo}}" class="rounded-circle" style="border:1px solid black;" alt="profile" width="40" heigth="40">
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <p class="dropdown-item"><strong>{{name}}</strong></p>
+                        <a class="dropdown-item" role="button" (click)="logout()">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+  </nav>

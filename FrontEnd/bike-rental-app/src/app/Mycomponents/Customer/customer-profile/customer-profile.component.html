@@ -1,0 +1,36 @@
+<h2> {{customer.userName}} Detail</h2>
+
+<hr />
+
+<div *ngIf="customer">
+  <div class="card shadow p-3 mb-5 bg-body rounded">
+    <div class="row">
+      <div class="col text-center">
+        <img src="{{customer.image}}" class="rounded img-fluid img-thumbnail mx-auto d-block" style="height:350px;" alt="{{customer.userName}}" />
+      </div>
+      <div class="col pt-3">
+      <table>
+        <Caption></Caption>
+        <th></th>
+          <tr>
+            <td><strong>Email Id : </strong>  {{customer.email}}</td>
+          </tr>
+          <tr>
+            <td><strong> Mobile Number : </strong> {{customer.mobileNumber}}</td>
+          </tr>
+          <tr>
+            <td><strong>Gender : </strong>  {{customer.gender}}</td>
+          </tr>
+          <tr>
+            <td> <strong>Address : </strong> {{customer.address}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="btn-group-justified d-grid gap-3 d-md-flex">
+  <button (click)="goto()" class="btn btn-primary ">Back to Dashboard</button>
+  <button (click)="editProfile(id)" class="btn btn-warning">Edit Profile</button>
+  <button (click)="updatePassword(id)" class="btn btn-success">Update Password</button>
+</div>

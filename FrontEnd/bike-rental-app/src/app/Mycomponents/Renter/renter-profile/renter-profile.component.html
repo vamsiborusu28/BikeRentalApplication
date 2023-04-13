@@ -1,0 +1,39 @@
+<h2> {{renter.userName}} Detail</h2>
+<hr />
+<div *ngIf="renter">
+  <div class="card shadow p-3 mb-5 bg-body rounded" id="profileCard">
+    <div class="row">
+      <div class="col text-center">
+        <img src="{{renter.image}}" class="img-fluid" style="height:350px;" alt="{{renter.userName}}" />
+      </div>
+      <div class="col pt-3">
+        <table class="table table-responsive">
+         <Caption></Caption>
+         <th></th>
+          <tr>
+            <td><strong>Email Id : </strong>{{renter.email}}</td>
+          </tr> <br>
+          <tr>
+            <td><strong>Mobile Number : </strong>{{renter.mobileNumber}}</td>
+          </tr> <br>
+          <tr>
+            <td><strong> Gender : </strong> {{renter.gender}}</td>
+          </tr><br>
+          <tr>
+            <td><strong> Address : </strong>{{renter.address}}</td>
+          </tr><br>
+          <tr>
+            <td><strong>Total Earnings : </strong>{{renter.earnings}}</td>
+          </tr><br>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="btn-group-justified d-grid gap-3 d-md-flex">
+  <button (click)="goto()" class="btn btn-primary">Back to Dashboard</button>
+  <button (click)="editProfile(id)" class="btn btn-warning">Edit Profile</button>
+  <button (click)="updateRenterPassword(id)" class="btn btn-success">Update Password</button>
+</div>

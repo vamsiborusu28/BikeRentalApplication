@@ -1,0 +1,49 @@
+
+<h2>{{bike.brandName}} {{bike.modelName}} detail</h2> 
+
+<hr/>
+
+<div *ngIf="bike">
+  <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+    <div class="row">
+      <div class="col-sm-4 text-center">
+          <img src="{{bike.bikeImage}}" class="rounded img-fluid "  style="height:350px;" alt="{{bike.brandName}} {{bike.modelName}}"/>
+      </div>
+      
+      <div class="col-sm-4">  
+          <div class="card-body">
+            <h3 class="card-title">{{bike.brandName}}</h3>
+            <h4>{{bike.modelName}}</h4>
+          <table>
+            <Caption></Caption>
+            <th></th> 
+            <tr><td><strong>Bike Number  : </strong>{{bike.bikeNumber}}</td></tr> <br>
+            <tr><td><strong>Rent Amount : </strong>{{bike.rentAmount}}</td></tr> <br>
+            <tr> <td><strong>Pickup Location : </strong>{{bike.pickUpLocation}}</td></tr><br>
+            <tr> <td><strong>Availability : </strong>{{bike.availability}}</td></tr><br>
+            <tr> <td><strong>Description : </strong> {{bike.description}}</td></tr><br>
+          </table>
+          </div>
+       </div>
+
+       <div class="col-sm-4 bg-dark">
+          <div *ngIf="error">{{error.error.message | json}}</div>
+              <div class="form-group mx-sm-3 mb-2 pt-3">
+                <label for="inputStartDate" class="text-white">Start Date :</label>
+                <input type="date" [(ngModel)] = "startdate" class="form-control" id="inputPassword2" placeholder="Start Date">
+              </div>
+              <div class="form-group mx-sm-3 mb-2 pt-3">
+                <label for="inputEndDate" class="text-white">End Date :</label>
+                <input type="date" required [(ngModel)] = "enddate" class="form-control" id="inputPassword2" placeholder="End Date" >
+              </div>
+              <div class="btn-group-justified text-center pt-4">
+                <button type="submit" (click)="diff()" class="btn btn-info mb-2 ">Calculate Amount</button>
+              </div>
+             <h5 class="text-white mx-sm-3 pt-4">Total price : {{calculatedamount}} </h5>
+          </div>
+        </div>
+</div>
+<div class="d-grid gap-3 d-md-flex" >
+    <button type="button" class="btn btn-primary" [disabled]="!startdate || !enddate || !calculatedamount" (click)="paymentNavigation()">Rent Now</button>
+    <button type="button" class="btn btn-warning" (click)="Back()">Back</button>
+ </div>

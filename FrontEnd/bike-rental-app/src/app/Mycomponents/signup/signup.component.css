@@ -1,0 +1,10 @@
+.label-input100::after{
+    content:" *";
+    color: red;
+   
+}
+
+.form-label::after{
+    content:" *";
+    color: red;
+}

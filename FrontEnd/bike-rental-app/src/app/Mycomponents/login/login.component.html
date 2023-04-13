@@ -1,0 +1,54 @@
+
+<div class="container-limit">
+  <div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-60 p-b-54">
+      <form class="login100-form">
+        <span class="login100-form-title p-b-49">Login</span>
+        <div class="alert alert-warning text-center" *ngIf='invalidLogin'>{{errorMessage}}</div>
+        <div class="alert alert-success text-center" *ngIf='loginSuccess'>{{successMessage}}</div>
+        <div class="wrap-input100 m-b-23">
+          <span class="label-input100">Email</span>
+          <input type="email" class="input100" id="email" required [(ngModel)]="Login.email" name="email"
+            placeholder="Enter E-mail address">
+          <span class="focus-input100" data-symbol="&#xf206;"></span>
+          <div [hidden]="Login.email" *ngIf="Login.email==='' && invalidLogin " class="alert alert-danger text-center">
+            Email is required!!!</div>
+        </div>
+        <div class="wrap-input100 m-b-23">
+          <span class="label-input100">Password</span>
+          <input type="password" class="input100" [(ngModel)]="Login.password" id="password" name="password"
+            placeholder="Enter password" required>
+          <span class="focus-input100" data-symbol="&#xf190;"></span>
+          <div [hidden]="Login.password" *ngIf="Login.password===''&& invalidLogin "
+            class="alert alert-danger text-center">Password is required!!!</div>
+        </div>
+       
+        <span class="label-input100">Login as :</span>
+        <div class="form-check validate-input m-t-13">
+          <input type="radio" class="form-check-input" value="renter" name="userType" [(ngModel)]="userRole.userType"
+            id="renter">
+          <label class="form-check-label" for="renter"> Renter</label>
+        </div>
+        <div class="form-check validate-input m-t-13">
+          <input type="radio" class="form-check-input" value="customer" name="userType" [(ngModel)]="userRole.userType"
+            id="customer">
+          <label class="form-check-label" for="admin"> Customer</label>
+        </div>
+        <div class="form-check validate-input m-t-13">
+          <input type="radio" class="form-check-input" value="admin" name="userType" [(ngModel)]="userRole.userType"
+            id="admin">
+          <label class="form-check-label" for="admin"> Admin</label>
+        </div>
+        <div class="container-login100-form-btn m-t-13">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button type="submit" (click)="handleLogin()" class="login100-form-btn">Login</button>
+          </div>
+        </div>
+        <div *ngIf="userRole.userType==='renter' || userRole.userType==='customer'" class="m-t-13">
+          <span>Don't have an account? <a routerLink='signup'>Click here</a></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
